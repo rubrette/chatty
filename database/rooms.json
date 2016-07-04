@@ -1,0 +1,53 @@
+{
+	"items": [
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL1JPT00vZDY2MzVjMzktMzNiNC0zYzAyLTkzZjEtZmZiMTgzNWM5NTMw",
+			"title": "Rui Brettes (rubrette)",
+			"type": "direct",
+			"isLocked": false,
+			"lastActivity": "2016-07-04T16:10:27.051Z",
+			"created": "2016-07-01T15:54:47.774Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL1JPT00vYTA4MjljNjAtMzZkZi0xMWU2LTk4ZmItOTNiZmJmYzMzYWRk",
+			"title": "Home Buttler",
+			"type": "group",
+			"isLocked": true,
+			"lastActivity": "2016-06-20T12:07:57.991Z",
+			"created": "2016-06-20T12:07:57.990Z",
+			"teamId": "Y2lzY29zcGFyazovL3VzL1RFQU0vYTA4MjljNjAtMzZkZi0xMWU2LTk4ZmItOTNiZmJmYzMzYWRk"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+			"title": "Chatty Test Room",
+			"type": "group",
+			"isLocked": false,
+			"lastActivity": "2016-06-22T22:29:26.784Z",
+			"created": "2016-04-10T14:30:24.335Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL1JPT00vOTNhNzI3NmUtMDMyYS0zMTE5LWFiNzktNWQ0OWY2ZmVmMDhj",
+			"title": "Rui Brettes (CCEP Cloud)",
+			"type": "direct",
+			"isLocked": false,
+			"lastActivity": "2016-03-03T04:40:41.113Z",
+			"created": "2016-03-03T04:39:28.094Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL1JPT00vYmE1OWJkMzAtZTBmOS0xMWU1LWFiNzctYjEwZjBmN2QwZGU4",
+			"title": "Home Butler",
+			"type": "group",
+			"isLocked": false,
+			"lastActivity": "2016-03-03T04:42:45.317Z",
+			"created": "2016-03-03T04:38:08.259Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL1JPT00vYzA4MzI3OTAtZGU1Ny0xMWU1LWFkMTgtYjVjYWQxZDBhZjNm",
+			"title": "Spark Butler",
+			"type": "group",
+			"isLocked": false,
+			"lastActivity": "2016-04-10T23:16:04.303Z",
+			"created": "2016-02-28T20:13:37.801Z"
+		}
+	]
+}

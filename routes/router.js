@@ -21,6 +21,7 @@ module.exports = function (router) {
   router.get("/messages",function(req,res){
     res.render("index.ejs", {
       page: "messages",
+      roomsObj: require ("../database/rooms.json"),
       postsObj: require ("../database/posts.json"),
       peopleObj: require ("../database/people.json")
     });
@@ -32,13 +33,22 @@ module.exports = function (router) {
     });
   });
 
-  // router.get("/contact",function(req,res){
-  //   res.render("index.ejs", {
-  //     page: "contact",
-  //     items: ["a","b","c","d"]
-  //   });
-  // });
+  router.get("/rooms",function(req,res){
+    res.render("index.ejs", {
+      page: "rooms",
+      roomsObj: require ("../database/rooms.json"),
+      postsObj: require ("../database/posts.json"),
+      peopleObj: require ("../database/people.json")
+    });
+  });
 
+  router.get("/actions",function(req,res){
+    res.render("index.ejs", {
+      page: "actions",
+      postsObj: require ("../database/rooms.json"),
+      peopleObj: require ("../database/people.json")
+    });
+  });
 
 // END
 }

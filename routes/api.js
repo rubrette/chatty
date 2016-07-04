@@ -39,33 +39,59 @@ module.exports = function (router) {
   // Test Message
   router.post("/api/add-post-message",function(req,res){
     console.log("API Router - ADD Post");
-    var messageBody = req.body.messageBody;
-    var personid = req.body.personid;
-    var toPerson = req.body.toPerson;
-    var room = req.body.room;
-    var file = req.body.file;
+    var body = req.body;
+    ;
 
-    console.log(toPerson);
+    // console.log("Test:" + sendTestMessage);
+    console.log(body);
+    if (body.sendTestMessage == "on" && body.destination_type != ""){
+      body.fromID = body.fromSelector.split(",")[0];
+      body.fromAuthorization = body.fromSelector.split(",")[1];
 
-    var Spark = require('node-sparky');
-    var spark = new Spark({
-      token: "OWQ0YzdlYjUtMzY1ZS00NjZmLTgyN2YtZjQ2NzgxYTM2MjgzMjIxZGFiZWMtYmRi"
-    });
+      // console.log(body.fromSelector);
+      // console.log("From: " + body.fromID);
+      // console.log("oAuth: " + body.fromAuthorization);
 
-    var messageObj = {
-        text: messageBody
-        // files: [file]
-      }
-    spark.messageSendPerson(toPerson, messageObj)
-      .then(function(message) {
-        console.log('Message sent: %s', message.text) ;
-        res.send("OK");
-      })
-      .catch(function(err){
-        console.log(err);
-        res.send("OK");
+      var Spark = require('node-sparky');
+      var spark = new Spark({
+        token: body.fromAuthorization
       });
 
+      var messageObj = {
+          text: body.messageBody
+          // files: [file]
+        };
+      if (body.file != null && body.file != "") {messageObj.files = [file];};
+      console.log(body.toID);
+      if (body.destination_type == "email" && body.toID != ""){
+        spark.messageSendPerson(body.toID, messageObj)
+          .then(function(message) {
+            console.log('Message sent: %s', message.text) ;
+            res.send("OK");
+          })
+          .catch(function(err){
+            console.log(err);
+            res.send("OK");
+          });
+        };
+
+        if (body.destination_type == "room"){
+          console.log("Room: " + body.room_destination);
+          spark.messageSendRoom(body.room_destination, messageObj)
+            .then(function(message) {
+              console.log('Message sent: %s', message.text);
+              res.send("OK");
+            })
+            .catch(function(err){
+              console.log(err);
+              res.send("Error");
+            });
+
+          };
+      }else{
+        res.send("Nothing to do");
+        console.log("Nothing to do!");
+      };
   });
 
 // END

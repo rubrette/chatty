@@ -1,0 +1,155 @@
+<div>
+<nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+       <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/users">Users</a></li>
+            <li ><a href="/messages">Messages</a></li>
+            <li class="active"><a href="/rooms">Rooms</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </li>
+      <li><a href="/actions">Actions</span></a></li>
+      <li><a href="/about">About us</a></li>
+    </ul>
+</nav>
+</div>
+<div id="lblResponse">
+</div>
+<br/>
+<div class="jumbotron"> <p>
+  <h3>Manage your Chatty Rooms.</h3>
+  <p>In this page you need to create all Rooms that will be part of the chat sequence.</p>
+</p>
+<p>
+  <a data-toggle="collapse" href="#collapse-add-message" class="btn btn-default btn-md" role="button">New Room</a>
+</p>
+  <div id="collapse-add-message" class="panel-collapse collapse">
+    <form id="form-add-message" role="form" class="form-horizontal" enctype="application/x-www-form-urlencoded" data-toggle="validator">
+        <div class="form-group">
+          <div class="col-sm-8">
+            <div class="input-group changethisone col-sm-12">
+              <label for="messageBody" class="col-sm-3">Message:</label>
+               <textarea class="form-control" rows="3" type="text" id="messageBody" name="messageBody" placeholder="Type your Message" required
+                         data-error="Please type a Message"></textarea>
+             </div>
+             <div class="help-block with-errors"></div>
+
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <div class="col-sm-8">
+            <div class="input-group changethisone col-sm-12">
+               <label class="col-sm-3">From: </label>
+                 <select class="form-control col-sm-6" name="personid" id="personid" required >
+                   <% peopleObj.people.forEach(function(item){
+                     if (item.authorization != "PLEASE UPDATE") {
+                       item.emails.forEach(function(element, index, array){%>
+                     <option value="<%= element %>"><%= item.displayname %> - (<%= element %>)</option>
+                       <%})
+                       }
+                     }) %>
+                 </select>
+
+            </div>
+                  <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <div class="col-sm-8">
+            <div class="input-group changethisone col-sm-12">
+             <label class="col-sm-2">Destination: </label>
+             <button type="button" class="btn btn-secondary dropdown-toggle" id="choose_destination_button" name="choose_destination_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Choose Destination
+               <span class="caret"></span></button>
+               <ul class="dropdown-menu">
+                 <li><a href="#" id="choosed_person_email">Send to Person's email</a></li>
+                 <li><a href="#" id="choosed_room">Send to Room</a></li>
+               </ul>
+           </div>
+            <div class="input-group col-sm-12">
+              <input class="form-control" type="text" name="room_destination" id="room_destination" placeholder="Type destination" style="visibility:hidden;"
+              value="Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw" >
+              <input class="form-control" type="hidden" name="destination_type" id="destination_type" placeholder="Type destination">
+              <div  id="DivPersonSelector" style="visibility:hidden;">
+                <select class="form-control" name="PersonSelector" id="PersonSelector" >
+                  <% peopleObj.people.forEach(function(item){ %>
+                      <% item.emails.forEach(function(element, index, array){%>
+                    <option value="<%= element %>"><%= item.displayname %> - (<%= element %>)</option>
+                      <%}) %>
+                  <%}) %>
+                </select>
+            </div>
+            </div>
+                 <div class="help-block with-errors"></div>
+          </div>
+         </div>
+          <div class="form-group has-feedback">
+          <div class="col-sm-8">
+           <div class="input-group changethisone col-sm-12">
+               <label for="file" class="col-sm-3">Files: </label>
+                 <input class="form-control" type="url" name="file" id="file" placeholder="Type a file URL to be attached to this message" required
+                 value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf2GKmowWlIdHkWddVbglrSV_oO2DXNaU_2MHGZBfTqCXqryor5Q">
+            </div>
+                 <div class="help-block with-errors"></div>
+
+          </div>
+          <div class="col-sm-1">
+            <!-- /api/spark-get-user-by-email -->
+            <button type="button"
+                    class="btn btn-success glyphicon glyphicon-floppy-saved input-md"
+                    onClick="sendFormData('POST','form-add-message','/api/add-post-message')"> Add Message</button>
+          </div>
+
+          </div>
+      </form>
+    </div>
+  </div>
+
+<p> </p>
+<div class="row" id="divUserDisplay">
+  <% roomsObj.items.forEach(function(item){ %>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <%= item.title %>
+            </a>
+          </h4>
+        </div>
+          <div class="panel-body">
+            <small class="text-muted">Room Type: </small><%= item.type %>
+          </br>
+            <small class="text-muted">isLocked: </small><%= item.isLocked %>
+          </br>
+            <small class="text-muted">lastActivity: </small></br><%= new Date(Date.parse(item.lastActivity)); %>
+          </div>
+      </div>
+    </div>
+  </div>
+  <% }); %>
+</div>
+
+<script>
+  // Local Message Scripts
+  $("#choosed_person_email").click(function(){
+      $("#choose_destination_button").html("Person: ");
+      $("#destination_type").attr("value","email");
+      $("#room_destination").css("visibility", "hidden");
+      $("#DivPersonSelector").css("visibility", "visible");
+  });
+
+  $("#choosed_room").click(function(){
+      $("#room_destination").attr("placeholder", "Type Room ID...");
+      $("#choose_destination_button").html("Room: ");
+      $("#destination_type").attr("value","room");
+      $("#DivPersonSelector").css("visibility", "hidden");
+      $("#room_destination").css("visibility", "visible");
+  });
+
+
+</script>
