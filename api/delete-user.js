@@ -1,3 +1,11 @@
+module.exports = function (personID, req, res) {
+    // Delete User into Database
+    const low = require('lowdb');
+    const fileAsync = require('lowdb/lib/file-async');
+    const dbutils = require ("../database/database_utils");
+    const peopleDB = low(__dirname + "/../database/people.json", { storage: fileAsync });
+
+    peopleDB.defaults({ people: [] }).value();
 
     // if user exists
     var check_existing_user = dbutils.db_hasID(peopleDB,'people',personID);
