@@ -1,0 +1,31 @@
+{
+  "actions": [
+    {
+      "actionid" : 1,
+      "order" : 1,
+      "sleeptimer" : 15,
+      "action": "Send Message",
+      "personid": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY",
+      "room": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+      "postid" : 1
+    },
+    {
+      "actionid" : 2,
+      "order" : 2,
+      "sleeptimer" : 15,
+      "action": "Create Room",
+      "personid": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY",
+      "room": "Focus work Cisco Live US",
+      "postid" : ""
+    },
+    {
+      "actionid" : 3,
+      "order" : 4,
+      "sleeptimer" : 15,
+      "action": "Add Persons to Room",
+      "personid": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY",
+      "persontoAdd": "rubrette@cisco.com",
+      "postid" : ""
+    }
+  ]
+}

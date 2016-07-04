@@ -1,0 +1,86 @@
+<div>
+<nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+       <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</span></a></li>
+      <li class="active"><a href="/messages">Messages<span class="sr-only">(current)</span></a></li>
+      <li><a href="/actions">Actions</span></a></li>
+      <li><a href="/about">About us</a></li>
+    </ul>
+</nav>
+</div>
+<div id="lblResponse">
+</div>
+<br/>
+<div class="jumbotron"> <p>
+  <h3>Manage your Chatty Messages.</h3>
+  <p>In this page you need to create all Messages that will be part of the chat sequence.</p>
+</p>
+<p>
+  <a data-toggle="collapse" href="#collapse-add-message" class="btn btn-default btn-md" role="button">New Message</a>
+</p>
+  <div id="collapse-add-message" class="panel-collapse collapse">
+    <form id="form-add-message" role="form" class="form-horizontal" enctype="application/x-www-form-urlencoded">
+        <div class="form-group">
+          <label for="label" class="col-sm-2 control-label">Message:</label>
+          <div class="col-sm-8">
+            <div class="input-group changethisone col-sm-12">
+               <textarea class="form-control" rows="3" id="messageBody" name="messageBody" placeholder="Type your Message"></textarea>
+               <label class="col-sm-3">From: </label>
+                 <input class="form-control" type="text form-control" name="personid" placeholder="Type your Message"
+                  value="Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY">
+               <label class="col-sm-3">To person: </label>
+                 <input class="form-control" type="text form-control" name="toPerson" placeholder="Type your Message"
+                 value="rubrette@cisco.com">
+               <label class="col-sm-3">To room: </label>
+                 <input class="form-control" type="text form-control" name="room" placeholder="Type your Message">
+               <label class="col-sm-3">Files: </label>
+                 <input class="form-control" type="text form-control" name="file" placeholder="Type your Message"
+                 value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf2GKmowWlIdHkWddVbglrSV_oO2DXNaU_2MHGZBfTqCXqryor5Q">
+            </div>
+          </div>
+          <div class="col-sm-1">
+            <!-- /api/spark-get-user-by-email -->
+            <button type="button"
+                    class="btn btn-success glyphicon glyphicon-floppy-saved input-md"
+                    onClick="sendFormData('POST','form-add-message','/api/add-post-message')"> Add Message</button>
+          </div>
+          </div>
+      </form>
+    </div>
+  </div>
+<p> </p>
+<div class="row" id="divUserDisplay">
+<% postsObj.posts.forEach(function(item){ %>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse-<%= item.postid %>">
+            </span>ID:<%= item.postid %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse-<%= item.postid %>" class="panel-collapse collapse">
+        <div class="panel-body" >
+          <label class="col-sm-2">Message: </label>
+          <textarea class="form-control" rows="3" id="messageBody" name="messageBody"><%= item.message %></textarea>
+          <label class="col-sm-2">From: </label>
+            <input class="form-control" type="text form-control" id="personID-<%= item.id %>" name="personID" value="<%= item.personid %>">
+          <label class="col-sm-2">To person: </label>
+            <input class="form-control" type="text form-control" id="personID-<%= item.id %>" name="personID" value="<%= item.toPerson %>">
+          <label class="col-sm-2">To room: </label>
+            <input class="form-control" type="text form-control" id="personID-<%= item.id %>" name="personID" value="<%= item.room %>">
+          <label class="col-sm-2">Files: </label>
+            <input class="form-control" type="text form-control" id="personID-<%= item.id %>" name="personID" value="<%= item.file %>">
+        </div>
+        <div class="panel-footer" >
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% }); %>
+</div>

@@ -1,0 +1,12 @@
+{
+  "posts": [
+    {
+      "postid" : 1,
+      "personid": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY",
+      "room": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+      "toPerson": "rubrette@cisco.com",
+      "message": "This is a test message",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf2GKmowWlIdHkWddVbglrSV_oO2DXNaU_2MHGZBfTqCXqryor5Q"
+    }
+  ]
+}

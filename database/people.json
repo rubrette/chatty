@@ -1,0 +1,35 @@
+{
+  "people": [
+    {
+      "id": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY",
+      "displayname": "Rui Brettes",
+      "emails": [
+        "rubrette@cisco.com",
+        "rbrettes@cisco.com"
+      ],
+      "avatar": "https://1efa7a94ed216783e352-c62266528714497a17239ececf39e9e2.ssl.cf1.rackcdn.com/V1~bc4c0369d93341f586946fcc7c156ee3~MeA2EKCgTWOa2lZbW7vHUw==~1600",
+      "created": "2012-06-15T20:27:18.364Z",
+      "authorization": "OWQ0YzdlYjUtMzY1ZS00NjZmLTgyN2YtZjQ2NzgxYTM2MjgzMjIxZGFiZWMtYmRi"
+    },
+    {
+      "id": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8wMWIwN2RlNi1mNmE0LTQ3MWItYTlmMy0yOGNlODY2MDRlYjE",
+      "displayname": "Butler",
+      "emails": [
+        "homebutler@ccepcloud.com"
+      ],
+      "avatar": "https://65431a26983bc8cd93c8-4c4af7c9cd146c6cc157931c91afaad7.ssl.cf1.rackcdn.com/V1~a5c13faf837ca788bbc594ee41f4ce3~RtqAN9XnQcWLvAk5k1fWrw==~1600",
+      "created": "2016-03-03T04:34:18.786Z",
+      "authorization": "OWQ0YzdlYjUtMzY1ZS00NjZmLTgyN2YtZjQ2NzgxYTM2MjgzMjIxZGFiZWMtYmRi"
+    },
+    {
+      "id": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8yMTE3NzkxZC1lMmQ1LTQzYjUtYTY2ZC04ZTNjNTI2YjJlNDI",
+      "displayname": "Will Sinks (wsinks)",
+      "emails": [
+        "wsinks@cisco.com"
+      ],
+      "avatar": "https://1efa7a94ed216783e352-c62266528714497a17239ececf39e9e2.ssl.cf1.rackcdn.com/V1~cc5bb26f021ca1baea65fb77f0fd19d1~HVxMgeE-TqudTsl23Kjg5g==~1600",
+      "created": "2012-06-15T20:50:10.450Z",
+      "authorization": "PLEASE UPDATE"
+    }
+  ]
+}

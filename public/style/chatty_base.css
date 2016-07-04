@@ -1,0 +1,16 @@
+<style>
+.img-circle{
+  display: inline-block;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0px;
+  left: 0px;
+  margin: 0;
+  width: 31.68px;
+  height: 31.68px;
+  min-width: 31.68px;
+  min-height: 31.68px;
+  background-size: 31.68px;
+}
+
+</style>

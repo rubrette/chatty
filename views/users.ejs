@@ -1,0 +1,107 @@
+  <div>
+  <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+         <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/users">Users<span class="sr-only">(current)</span></a></li>
+        <li><a href="/messages">Messages</span></a></li>
+        <li><a href="/actions">Actions</span></a></li>
+        <li><a href="/about">About us</a></li>
+      </ul>
+  </nav>
+  </div>
+  <div id="lblResponse">
+  </div>
+  <br/>
+  <div class="jumbotron"> <p>
+    <h3>Manage your Chatty Users.</h3>
+    <p>In this page you need to create all users that will be part of the chat sequence.</p>
+
+  </p>
+  <p>
+    <a data-toggle="collapse" href="#collapse-add-user" class="btn btn-default btn-md" role="button">Get New User</a>
+  </p>
+    <div id="collapse-add-user" class="panel-collapse collapse">
+      <form id="form-add-user" role="form" class="form-horizontal" enctype="application/x-www-form-urlencoded">
+          <div class="form-group">
+            <label for="label" class="col-sm-2 control-label">User email:</label>
+            <div class="col-sm-3">
+              <div class="input-group changethisone">
+                <input type="text"  class="form-control" id="SearchEmail" name="SearchEmail" placeholder="Search for Spark User"/>
+                <input type="hidden" id="oAuthToken" name="oAuthToken" value="<%= peopleObj.people[0].authorization %>">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-search"></i>
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-1">
+              <!-- /api/spark-get-user-by-email -->
+              <button type="button"
+                      class="btn btn-success glyphicon glyphicon-floppy-saved input-sm"
+                      onClick="sendFormData('POST','form-add-user','/api/spark-get-user-by-email')">Add</button>
+            </div>
+            </div>
+        </form>
+      </div>
+    </div>
+<p> </p>
+<div class="row" id="divUserDisplay">
+  <% peopleObj.people.forEach(function(item){ %>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" href="#collapse-<%= item.id %>">
+              <img src="<%= item.avatar %>" class="img-circle" width="31.68px" height="31.68px">&nbsp;</span><%= item.displayname %>
+            </a>
+          </h4>
+        </div>
+        <div id="collapse-<%= item.id %>" class="panel-collapse collapse">
+          <div class="panel-body">
+
+            <small class="text-muted">User email address:</small>
+            <ul>
+              <% item.emails.forEach(function(element, index, array){%>
+                <li>
+                  <%= element %> <%}) %>
+                </li>
+            </ul>
+          </div>
+          <div class="panel-footer" >
+            <form id="form-<%= item.id %>" role="form" class="form-horizontal" enctype="application/x-www-form-urlencoded">
+                <div class="form-group">
+                  <label for="searchterm" class="col-sm-3 col-md-3 col-lg-3 control-label pull-left">Token:&nbsp;</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control input-sm" id="oAuth-<%= item.id %>" name="oAuthToken" value="<%= item.authorization %>">
+                    <input type="hidden" id="personID-<%= item.id %>" name="personID" value="<%= item.id %>">
+                    <small class="text-muted">Spark Authorization token.</small></br>
+                    <span class="pull-center clearfix">
+                      <button type="button"
+                              class="btn btn-success glyphicon glyphicon-floppy-saved"
+                              data-toggle="tooltip" title="Save Changes"
+                              onClick="sendFormData('POST','form-<%= item.id %>','/api/updateUser_authorization')" >
+                      </button>
+                      <button type="button"
+                              class="btn btn-info glyphicon glyphicon-copy"
+                              data-toggle="tooltip" title="Copy to Clipboard"
+                              data-clipboard-target="#oAuth-<%= item.id %>"
+                              href="#">
+                      </button>
+                      <button type="button"
+                              class="btn btn-danger glyphicon glyphicon-trash"
+                              data-toggle="tooltip" title="Remove User"
+                              onClick="sendFormData('POST','form-<%= item.id %>','/api/deleteUser')" >
+                      </button>
+                    </span>
+                  </div>
+                  </div>
+              </form>
+        </div>
+        </div>
+        <p class="text-left" style="padding-left:2px">Connection status <span class="glyphicon glyphicon-ok-circle" style="color:green"> </span></p>
+        <p class="text-left" style="padding-left:2px">Has content <span class="glyphicon glyphicon-ok-circle" style="color:green"> </span></p>
+      </div>
+    </div>
+  </div>
+  <% }); %>
+</div>
