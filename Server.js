@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 // Set Express router
 var router = express.Router();
 // set public access folder (Images, CSS, Avatars, etc)
-router.use(express.static('public'));
+router.use(express.static(__dirname +'/public'));
 // set Express Router ROUTES
 var routes = require (__dirname + "/routes/router")(router);
 //routes(router);
@@ -35,9 +35,9 @@ app.use("*",function(req,res){
 });
 
 // WebServer instanciate
-var serverPort = process.env.PORT || 5000;
-app.listen(serverPort,function(){
-  console.log("Live at Port " + serverPort);
+app.set('port', (process.env.PORT || 5000));
+app.listen(app.get('port'),function(){
+  console.log("Live at Port " + app.get('port'));
   console.log("App Env: " + app.get('env'));
 });
 
