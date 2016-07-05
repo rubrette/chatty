@@ -17,7 +17,7 @@
     "nodemon": "^1.9.2"
   },
   "description": "Chatty for Cisco Spark",
-  "main": "Server.js",
+  "main": "server.js",
   "devDependencies": {},
   "author": "Rui Brettes",
   "license": "ISC"
