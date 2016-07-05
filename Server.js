@@ -35,9 +35,10 @@ app.use("*",function(req,res){
 });
 
 // WebServer instanciate
-var serverPort = process.env.PORT || 3000;
+var serverPort = process.env.PORT || 5000;
 app.listen(serverPort,function(){
   console.log("Live at Port " + serverPort);
+  console.log("App Env: " + app.get('env'));
 });
 
 // END EOF
