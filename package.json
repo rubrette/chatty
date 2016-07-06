@@ -2,7 +2,11 @@
   "name": "chatty",
   "version": "0.0.2",
   "scripts": {
-    "start": "node Server.js"
+      "start": "node Server.js"
+  },
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/rubrette/repository.git"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -14,7 +18,9 @@
     "lodash": "^4.13.1",
     "lowdb": "^0.13.1",
     "node-sparky": "^3.1.10",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "pg": "6.0.1",
+    "pg-promise": "^5.1.0"
   },
   "description": "Chatty for Cisco Spark",
   "main": "server.js",

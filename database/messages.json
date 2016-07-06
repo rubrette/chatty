@@ -1,0 +1,65 @@
+{
+  "items": [
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL01FU1NBR0UvNzUyMTk4OTAtNDJhMi0xMWU2LWI4NjUtZWQxN2UxODE2MmI0",
+			"roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+			"files": [
+				"https://api.ciscospark.com/v1/contents/Y2lzY29zcGFyazovL3VzL0NPTlRFTlQvNzUyMTk4OTAtNDJhMi0xMWU2LWI4NjUtZWQxN2UxODE2MmI0LzA"
+			],
+			"personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY",
+			"personEmail": "rubrette@cisco.com",
+			"created": "2016-07-05T11:20:19.865Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL01FU1NBR0UvNzJkYWYwNDAtNDIxYi0xMWU2LWI5ZWItZDkwNDA0MGFkMTc2",
+			"roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+			"text": "asda",
+			"personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY",
+			"personEmail": "rubrette@cisco.com",
+			"created": "2016-07-04T19:13:53.988Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL01FU1NBR0UvMzgzNGI0ZTAtNDIxYS0xMWU2LWFjMWEtMmQ0ZGI5YTM3Yzg2",
+			"roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+			"text": "te",
+			"personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS82YTJiNDJlMi0wMGZlLTRjMzItYjFiNS03ZGFmZjFlMDE3NDY",
+			"personEmail": "rubrette@cisco.com",
+			"created": "2016-07-04T19:05:06.094Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL01FU1NBR0UvNmY0ODg5NzAtNDIxNS0xMWU2LTlkZTUtOTNjMDkwYTkwNmEz",
+			"roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+			"text": "ttest",
+			"files": [
+				"https://api.ciscospark.com/v1/contents/Y2lzY29zcGFyazovL3VzL0NPTlRFTlQvNmY0ODg5NzAtNDIxNS0xMWU2LTlkZTUtOTNjMDkwYTkwNmEzLzA"
+			],
+			"personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8wMWIwN2RlNi1mNmE0LTQ3MWItYTlmMy0yOGNlODY2MDRlYjE",
+			"personEmail": "homebutler@ccepcloud.com",
+			"created": "2016-07-04T18:30:51.015Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL01FU1NBR0UvZTU4NzYyNjAtNDIwYS0xMWU2LWJjZWEtNmRjM2U4ZTdiMWM5",
+			"roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+			"text": "test",
+			"personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8wMWIwN2RlNi1mNmE0LTQ3MWItYTlmMy0yOGNlODY2MDRlYjE",
+			"personEmail": "homebutler@ccepcloud.com",
+			"created": "2016-07-04T17:15:24.934Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL01FU1NBR0UvY2ZlMGExMTAtNDIwYS0xMWU2LThlMzUtN2ZiODFmMTEwYjQw",
+			"roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+			"text": "test",
+			"personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8wMWIwN2RlNi1mNmE0LTQ3MWItYTlmMy0yOGNlODY2MDRlYjE",
+			"personEmail": "homebutler@ccepcloud.com",
+			"created": "2016-07-04T17:14:48.609Z"
+		},
+		{
+			"id": "Y2lzY29zcGFyazovL3VzL01FU1NBR0UvYzczMDg4MDAtMzhjOC0xMWU2LTgxMjgtNzMxYzJlYWFmZGEy",
+			"roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vYzMzMzFkZjAtZmYyOC0xMWU1LWJkZTUtYzMxNGQ2YjBkZGEw",
+			"text": "Test",
+			"personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8wMWIwN2RlNi1mNmE0LTQ3MWItYTlmMy0yOGNlODY2MDRlYjE",
+			"personEmail": "homebutler@ccepcloud.com",
+			"created": "2016-06-22T22:29:26.784Z"
+		}
+	]
+}
