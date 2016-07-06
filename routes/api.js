@@ -1,4 +1,20 @@
 module.exports = function (router) {
+  // Define dependent packages
+  // // Settings
+  // var settings = require ('../config/settings.js');
+  // // Database
+  // var postgreSQL = require('pg');
+  // postgreSQL.defaults.ssl = true;
+  // process.on('unhandledRejection', function(e) {
+  //   console.log(e.message, e.stack)
+  // });
+  // var pool =  new postgreSQL.Pool(settings.database_config);
+  // pool.on('error', function (err, client) {
+  //   console.error('idle client error', err.message, err.stack)
+  // });
+
+  var database = require ("../database/pg_database");
+  var pool = database.connect();
 
   // log action from Browser
   router.use(function (req,res,next) {
@@ -93,6 +109,27 @@ module.exports = function (router) {
         console.log("Nothing to do!");
       };
   });
+
+  // route GET actions
+  router.get("/api/getActions",function(req,res){
+    database.getActions(pool, res, "ORDER BY action_order ASC");
+  });
+
+  // route GET people
+  router.get("/api/getPeople",function(req,res){
+    database.getPeople(pool, res, "ORDER BY displayname ASC");
+  });
+
+  // route GET rooms
+  router.get("/api/getRooms",function(req,res){
+    database.getRooms(pool, res, "ORDER BY type, title ASC");
+  });
+
+  // route GET Messages
+  router.get("/api/getMessages",function(req,res){
+    database.getMessages(pool, res, "ORDER BY id ASC");
+  });
+
 
 // END
 }

@@ -12,21 +12,33 @@ module.exports = {
       return new pg.Pool(settings.database_config);
 
       pool.on('error', function (err, client) {
-        // if an error is encountered by a client while it sits idle in the pool
-        // the pool itself will emit an error event with both the error and
-        // the client which emitted the original error
-        // this is a rare occurrence but can happen if there is a network partition
-        // between your application and the database, the database restarts, etc.
-        // and so you might want to handle it and at least log it out
         console.error('idle client error', err.message, err.stack)
       });
     }, // END Connect
 
-
     // Functions for postgreSQL database
-    // // USERS
+    // // People
+    getPeople : function (pool, res, OrderBy, FilterBy){
+      OrderBy = OrderBy || "";
+      FilterBy = FilterBy || "";
+      pool.connect(function(err, client, done) {
+        if(err) {
+              console.error('Error fetching client from database Pool', err);
+            }
+            var query = client.query("SELECT * FROM people " + OrderBy + " " + FilterBy,
+              function(err, result) {
+                  done(); // Release db connection
+                  if(err) {
+                    return console.error('error running query', err);
+                  }
+                  console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
+                  // console.log(result.rows[0]);
+                  res.send(result);
+                });
+              });
+    }, //END getPeople
 
-    insert_people : function (pool, peopleObj){
+    insert_people : function (pool, res,  peopleObj){
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -40,12 +52,12 @@ module.exports = {
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
                   // console.log(result.rows[0]);
-                  return result;
+                  res.send(result);
                 });
         });
     }, //END insert_people
 
-    update_people : function (pool, peopleObj) {
+    update_people : function (pool, res,  peopleObj) {
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -58,12 +70,12 @@ module.exports = {
                     return console.error('error running query', err);
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
-                  return result;
+                  res.send(result);
                 });
         });
     }, // END update_people
 
-    delete_people : function (pool, id) {
+    delete_people : function (pool, res,  id) {
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -75,13 +87,33 @@ module.exports = {
                     return console.error('error running query', err);
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
-                  return result;
+                  res.send(result);
                 });
         });
     }, // END delete_people
 
     // Messages
-    insert_message : function (pool, message){
+    getMessages : function (pool, res, OrderBy, FilterBy){
+      OrderBy = OrderBy || "";
+      FilterBy = FilterBy || "";
+      pool.connect(function(err, client, done) {
+        if(err) {
+              console.error('Error fetching client from database Pool', err);
+            }
+            var query = client.query("SELECT * FROM messages " + OrderBy + " " + FilterBy,
+              function(err, result) {
+                  done(); // Release db connection
+                  if(err) {
+                    return console.error('error running query', err);
+                  }
+                  console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
+                  // console.log(result.rows[0]);
+                  res.send(result);
+                });
+              });
+    }, //END getMessages
+
+    insert_message : function (pool, res,  res, message){
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -102,12 +134,12 @@ module.exports = {
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
                   // console.log(result.rows[0]);
-                  return result;
+                  res.send(result);
                 });
         });
     }, //END insert_message
 
-    update_message : function (pool, message) {
+    update_message : function (pool, res,  message) {
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -127,12 +159,12 @@ module.exports = {
                     return console.error('error running query', err);
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
-                  return result;
+                  res.send(result);
                 });
         });
     }, // END update_message
 
-    delete_message : function (pool, id) {
+    delete_message : function (pool, res,  id) {
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -144,13 +176,37 @@ module.exports = {
                     return console.error('error running query', err);
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
-                  return result;
+                  res.send(result);
                 });
         });
     }, // END delete_message
 
     // Rooms
-    insert_room : function (pool, room){
+    getRooms : function (pool, res, OrderBy, FilterBy){
+      OrderBy = OrderBy || "";
+      FilterBy = FilterBy || "";
+      pool.connect(function(err, client, done) {
+        if(err) {
+              console.error('Error fetching client from database Pool', err);
+            }
+            var query = client.query("SELECT * FROM rooms " + OrderBy + " " + FilterBy,
+              function(err, result) {
+                  done(); // Release db connection
+                  if(err) {
+                    return console.error('error running query', err);
+                  }
+                  console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
+                  // console.log(result.rows[0]);
+                  //res.send(result);
+                  res.send(result);
+                });
+                query.on('row', function(row) {
+                  console.log(row);
+                });
+              });
+    }, //END getRooms
+
+    insert_room : function (pool, res,  room){
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -174,12 +230,12 @@ module.exports = {
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
                   // console.log(result.rows[0]);
-                  return result;
+                  res.send(result);
                 });
         });
     }, //END insert_room
 
-    update_room : function (pool, room) {
+    update_room : function (pool, res,  room) {
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -201,12 +257,12 @@ module.exports = {
                     return console.error('error running query', err);
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
-                  return result;
+                  res.send(result);
                 });
         });
     }, // END update_room
 
-    delete_room : function (pool, id) {
+    delete_room : function (pool, res,  id) {
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -218,19 +274,20 @@ module.exports = {
                     return console.error('error running query', err);
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
-                  return result;
+                  res.send(result);
                 });
         });
     }, // END delete_room
 
     // Actions
-    get_actions : function (pool, OrderBy, FilterBy){
-      var returnObj = {};
-      returnObj = pool.connect(function(err, client, done) {
+    getActions : function (pool, res, OrderBy, FilterBy){
+      OrderBy = OrderBy || "";
+      FilterBy = FilterBy || "";
+      pool.connect(function(err, client, done) {
         if(err) {
               console.error('Error fetching client from database Pool', err);
             }
-            var query = client.query("SELECT action_order, personId, sendToRoom, SendToEmail, messageId, sleep FROM actions " + OrderBy + " " + FilterBy,
+            var query = client.query("SELECT * FROM actions " + OrderBy + " " + FilterBy,
               function(err, result) {
                   done(); // Release db connection
                   if(err) {
@@ -238,20 +295,17 @@ module.exports = {
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
                   // console.log(result.rows[0]);
-                  //return result;
-                  returnObj.result = result;
+                  //res.send(result);
+                  res.send(result);
                 });
                 query.on('row', function(row) {
                   console.log(row);
-                  returnObj = returnObj + row;
-                    return returnObj;
+
                 });
+              });
+    }, //END getActions
 
-        });
-        return returnObj;
-    }, //END insert_action
-
-    insert_action : function (pool, action){
+    insert_action : function (pool, res,  action){
       return pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -273,12 +327,12 @@ module.exports = {
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
                   // console.log(result.rows[0]);
-                  return result;
+                  res.send(result);
                 });
         });
     }, //END insert_action
 
-    update_action : function (pool, action) {
+    update_action : function (pool, res,  action) {
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -299,12 +353,12 @@ module.exports = {
                     return console.error('error running query', err);
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
-                  return result;
+                  res.send(result);
                 });
         });
     }, // END update_action
 
-    delete_action : function (pool, id) {
+    delete_action : function (pool, res,  id) {
       pool.connect(function(err, client, done) {
         if(err) {
               return console.error('Error fetching client from database Pool', err);
@@ -316,7 +370,7 @@ module.exports = {
                     return console.error('error running query', err);
                   }
                   console.log("DATABASE: command " + result.command + " executed, " + result.rowCount + " rows affected");
-                  return result;
+                  res.send(result);
                 });
         });
     } // END delete_action
